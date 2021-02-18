@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc,char ** argv)// main(int argc,char* argv[], char **env)
+/*
+int argc 用来统计程序运行时发送给main函数的名利行参数的个数 VS中默认为1
+char *argv[] 字符串数组，存放指向的字符串参数的指针数组，每个元素指向一个参数
+    argv[0]--指向程序运行的全路径名
+    argv[1]--指向在DOS命令行中执行程序名后的第一个字符串
+    argv[2]--指向执行程序名后的第二个字符串
+    argv[3]--指向执行程序名后的第三个字符串
+    argv[argc]--为NULL
+    
+char** env 字符串数组，env[]的每个元素都包含ENVVAR=value形式的字符串，其中ENVVAR为环境变量，value为其对应的值
+*/
+{
+    int i;
+    printf("number of command line arguments are: %i\n",argc);
+    for(i=0;i<argc;i++){
+        printf("%i. argument is %s\n",i,argv[i]);
+    }
+}
+
+OUT:
+number of command line arguments are: 1
+0. argument is C:\Users\DELL\Desktop\demo\bin\Debug\demo.exe
+
+/**
+kwut6b@szamrend:~/ops$ ./a.out a b c
+Number of command line arguments are: 4
+0. argument is ./a.out
+1. argument is a
+2. argument is b
+3. argument is c
+kwut6b@szamrend:~/ops$
